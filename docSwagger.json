@@ -1,0 +1,1621 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Projeto Systêxtil",
+        "description": "Projeto Piloto - Programa Estagiários 2025 | Membros: Amanda, Enzo, Lucas Borges, Lucas Ribeiro, Luis",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/produto/alterar/{id}": {
+            "put": {
+                "tags": [
+                    "Produto"
+                ],
+                "operationId": "editarProduto",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Produto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/usuario": {
+            "get": {
+                "tags": [
+                    "Usuário"
+                ],
+                "operationId": "buscarUsuarios",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Usuário"
+                ],
+                "operationId": "cadastrarUsuario",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Usuario"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/produto": {
+            "get": {
+                "tags": [
+                    "Produto"
+                ],
+                "operationId": "listarProdutos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Produto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Produto"
+                ],
+                "operationId": "cadastrarProduto",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Produto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pedidoVenda": {
+            "get": {
+                "tags": [
+                    "Pedido de Venda"
+                ],
+                "operationId": "buscarPedidosVenda",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Pedido de Venda"
+                ],
+                "operationId": "cadastrarPedidoVenda",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PedidoVendaDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pedidoCompra": {
+            "get": {
+                "tags": [
+                    "Pedido de Compra"
+                ],
+                "operationId": "listarPedidoDeCompra",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Pedido de Compra"
+                ],
+                "operationId": "cadastrarPedidoDeCompra",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PedidoCompraDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ordemProducao": {
+            "post": {
+                "tags": [
+                    "Ordem de Produção"
+                ],
+                "operationId": "cadastrarOrdemProducao",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OrdemProducao"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/fornecedor": {
+            "get": {
+                "tags": [
+                    "Fornecedor"
+                ],
+                "operationId": "getAllFornecedores",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Fornecedor"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Fornecedor"
+                ],
+                "operationId": "createFornecedor",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Fornecedor"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Fornecedor"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/estoque": {
+            "get": {
+                "tags": [
+                    "Estoque"
+                ],
+                "operationId": "listarEstoque",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Estoque"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Estoque"
+                ],
+                "operationId": "criarEstoque",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstoqueDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Estoque"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/endereco": {
+            "get": {
+                "tags": [
+                    "Endereço"
+                ],
+                "operationId": "buscarEnderecos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Endereço"
+                ],
+                "operationId": "cadastrarEndereco",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EnderecoDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "listarContas",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conta"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "cadastrarConta",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Conta"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Conta"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cliente": {
+            "get": {
+                "tags": [
+                    "Cliente"
+                ],
+                "operationId": "buscarUltimosClientes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cliente"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cliente"
+                ],
+                "operationId": "criarCliente",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ClienteDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/apontamento": {
+            "post": {
+                "tags": [
+                    "Apontamento"
+                ],
+                "operationId": "criarApontamento",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Apontamento"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pedidoVenda/expedir/{codVenda}": {
+            "patch": {
+                "tags": [
+                    "Pedido de Venda"
+                ],
+                "operationId": "expedirVenda",
+                "parameters": [
+                    {
+                        "name": "codVenda",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/desativar/{cod}": {
+            "patch": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "desativarConta",
+                "parameters": [
+                    {
+                        "name": "cod",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/contaPagar/{cod}": {
+            "patch": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "pagarConta",
+                "parameters": [
+                    {
+                        "name": "cod",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/produto/{nomePro}": {
+            "get": {
+                "tags": [
+                    "Produto"
+                ],
+                "operationId": "buscarProdutosPorNome",
+                "parameters": [
+                    {
+                        "name": "nomePro",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Produto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/produto/ultimos10Produtos": {
+            "get": {
+                "tags": [
+                    "Produto"
+                ],
+                "operationId": "buscarUltimosProdutos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Produto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ordemProducao/data": {
+            "get": {
+                "tags": [
+                    "Ordem de Produção"
+                ],
+                "operationId": "listarPorData",
+                "parameters": [
+                    {
+                        "name": "dataInicio",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "dataFinal",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OrdemProducao"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/fornecedor/{id}": {
+            "get": {
+                "tags": [
+                    "Fornecedor"
+                ],
+                "operationId": "getFornecedorById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Fornecedor"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/estoque/produto/{codPro}": {
+            "get": {
+                "tags": [
+                    "Estoque"
+                ],
+                "operationId": "listarEstoquePorProduto",
+                "parameters": [
+                    {
+                        "name": "codPro",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Estoque"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/estoque/cod/{cod}": {
+            "get": {
+                "tags": [
+                    "Estoque"
+                ],
+                "operationId": "listarPorId",
+                "parameters": [
+                    {
+                        "name": "cod",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Estoque"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/contaReceber": {
+            "get": {
+                "tags": [
+                    "Dashboard"
+                ],
+                "operationId": "listarContasAReceber",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conta"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/contaPagar": {
+            "get": {
+                "tags": [
+                    "Dashboard"
+                ],
+                "operationId": "listarContasAPagar",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conta"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/venda/{codVenda}": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "listarPorVenda",
+                "parameters": [
+                    {
+                        "name": "codVenda",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Conta"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/id/{cod}": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "listarContaPorId",
+                "parameters": [
+                    {
+                        "name": "cod",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Conta"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/data": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "listarPorData_1",
+                "parameters": [
+                    {
+                        "name": "dataInicio",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "dataFinal",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conta"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/contaReceber": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "listarContasAReceber_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conta"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/contaPagar": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "listarContasAPagar_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conta"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/conta/compra/{codCompra}": {
+            "get": {
+                "tags": [
+                    "Conta"
+                ],
+                "operationId": "listarPorCompra",
+                "parameters": [
+                    {
+                        "name": "codCompra",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Conta"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Produto": {
+                "type": "object",
+                "properties": {
+                    "codPro": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "nomePro": {
+                        "type": "string"
+                    },
+                    "descPro": {
+                        "type": "string"
+                    },
+                    "imgPro": {
+                        "type": "string"
+                    },
+                    "precoUn": {
+                        "type": "number",
+                        "format": "double",
+                        "minimum": 1
+                    },
+                    "dataCriacao": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "statusPro": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "nomePro",
+                    "precoUn"
+                ]
+            },
+            "Usuario": {
+                "type": "object",
+                "properties": {
+                    "codUsu": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "nomeUsu": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "emailUsu": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "senhaUsu": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "dataCriacao": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "statusUsu": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "permissaoUsu": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "emailUsu",
+                    "nomeUsu",
+                    "permissaoUsu",
+                    "senhaUsu",
+                    "statusUsu"
+                ]
+            },
+            "Item": {
+                "type": "object",
+                "properties": {
+                    "codItem": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codPro": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codVenda": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codCompra": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codFor": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "qtdItem": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 1
+                    },
+                    "statusItem": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "codPro",
+                    "qtdItem"
+                ]
+            },
+            "PedidoVenda": {
+                "type": "object",
+                "properties": {
+                    "codVenda": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codCliente": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codUsu": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dataVenda": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "dataFinalVenda": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "qtdVenda": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "valorVenda": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "statusVenda": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "codCliente",
+                    "codUsu",
+                    "statusVenda"
+                ]
+            },
+            "PedidoVendaDTO": {
+                "type": "object",
+                "properties": {
+                    "pedidoVenda": {
+                        "$ref": "#/components/schemas/PedidoVenda"
+                    },
+                    "itensPedidoVenda": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "pedidoDeVenda": {
+                        "$ref": "#/components/schemas/PedidoVenda",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "PedidoCompra": {
+                "type": "object",
+                "properties": {
+                    "codUsu": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dataCompra": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "dataFinalCompra": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "qtdCompra": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "valorCompra": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "statusCompra": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codCompra": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "codUsu",
+                    "dataFinalCompra"
+                ]
+            },
+            "PedidoCompraDTO": {
+                "type": "object",
+                "properties": {
+                    "pedidoCompra": {
+                        "$ref": "#/components/schemas/PedidoCompra"
+                    },
+                    "itensPedidoCompra": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Item"
+                        }
+                    },
+                    "pedidoDompra": {
+                        "$ref": "#/components/schemas/PedidoCompra",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "OrdemProducao": {
+                "type": "object",
+                "properties": {
+                    "codOp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codPro": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codItem": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codUsu": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dataFinal": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "qtdOp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "statusOp": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "Fornecedor": {
+                "type": "object",
+                "properties": {
+                    "codFor": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "nomeFor": {
+                        "type": "string"
+                    }
+                }
+            },
+            "EstoqueDTO": {
+                "type": "object",
+                "properties": {
+                    "codPro": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codDeposito": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "qtdEstoque": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "statusEstoque": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "codDeposito",
+                    "codPro",
+                    "qtdEstoque"
+                ]
+            },
+            "Estoque": {
+                "type": "object",
+                "properties": {
+                    "codEstoque": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codPro": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codDeposito": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "qtdEstoque": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "statusEstoque": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "EnderecoDTO": {
+                "type": "object",
+                "properties": {
+                    "ruaEnd": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "numeroEnd": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "complementoEnd": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "bairroEnd": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "cidadeEnd": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "estadoEnd": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "cepEnd": {
+                        "type": "string",
+                        "pattern": "^[0-9.-]{8,10}$"
+                    }
+                },
+                "required": [
+                    "bairroEnd",
+                    "cepEnd",
+                    "cidadeEnd",
+                    "complementoEnd",
+                    "estadoEnd",
+                    "numeroEnd",
+                    "ruaEnd"
+                ]
+            },
+            "Conta": {
+                "type": "object",
+                "properties": {
+                    "codConta": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codCompra": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codVenda": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "emissaoConta": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "vencimentoConta": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "valorConta": {
+                        "type": "number",
+                        "format": "double",
+                        "minimum": 0.01
+                    },
+                    "tipoConta": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 1
+                    },
+                    "statusConta": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "statusConta",
+                    "valorConta",
+                    "vencimentoConta"
+                ]
+            },
+            "ClienteDTO": {
+                "type": "object",
+                "properties": {
+                    "nomeFantasiaCli": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "razaoSocialCli": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "cnpjCli": {
+                        "type": "string",
+                        "pattern": "[0-9A-Za-z./\\-]+"
+                    },
+                    "telefoneCli": {
+                        "type": "string",
+                        "pattern": "[0-9()\\-\\. ]+"
+                    },
+                    "emailCli": {
+                        "type": "string",
+                        "maxLength": 2147483647,
+                        "minLength": 1
+                    },
+                    "credCli": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "codEnd": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "required": [
+                    "cnpjCli",
+                    "codEnd",
+                    "credCli",
+                    "emailCli",
+                    "nomeFantasiaCli",
+                    "razaoSocialCli",
+                    "telefoneCli"
+                ]
+            },
+            "Apontamento": {
+                "type": "object",
+                "properties": {
+                    "codOp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "codUsu": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "qtdProduzida": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 1
+                    },
+                    "statusApo": {
+                        "type": "integer",
+                        "format": "int32",
+                        "maximum": 1,
+                        "minimum": 0
+                    },
+                    "obsApo": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "codOp",
+                    "codUsu"
+                ]
+            },
+            "Cliente": {
+                "type": "object",
+                "properties": {
+                    "cod_cli": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "nomeFantasiaCli": {
+                        "type": "string"
+                    },
+                    "razaoSocialCli": {
+                        "type": "string"
+                    },
+                    "cnpjCli": {
+                        "type": "string"
+                    },
+                    "codEnd": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "telefoneCli": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "emailCli": {
+                        "type": "string"
+                    },
+                    "credCli": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "dataCriacao": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "statusCli": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            }
+        }
+    }
+}
