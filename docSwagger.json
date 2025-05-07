@@ -1248,10 +1248,6 @@
     "items": {
     "$ref": "#/components/schemas/Item"
     }
-    },
-    "pedidoDeVenda": {
-    "$ref": "#/components/schemas/PedidoVenda",
-    "writeOnly": true
     }
     }
     },
@@ -1303,10 +1299,6 @@
     "items": {
     "$ref": "#/components/schemas/Item"
     }
-    },
-    "pedidoDompra": {
-    "$ref": "#/components/schemas/PedidoCompra",
-    "writeOnly": true
     }
     }
     },
